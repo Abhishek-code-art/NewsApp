@@ -3,28 +3,22 @@ import '../css/NewsItem.css'
 
 const NewsItem = (props) => {
 
-    let { title, description, imageUrl, newsUrl, date, author, newsSource } = props;
+    let { title, description, imageUrl, newsUrl, author, publishedAt, source } = props;
     return (
-      <>
         <div className="my-3">
-          <div className="card" style={{}}>
-            <div className="card-header text-center">
-              News source: <strong>{newsSource}</strong>
+            <div className="card" style={{ width: "22rem" }}>
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {source}
+                </span>
+                <img src={imageUrl ? imageUrl : "https://www.northampton.ac.uk/wp-content/uploads/2018/11/default-svp_news.jpg"} className="card-img-top" alt="..." />
+                <div className={`card-body ${props.mode}`}>
+                    <h5 className="card-title">{title}...</h5>
+                    <p className="card-text">{description}...</p>
+                    <p className="card-text"><small className="text-danger">By {author} on {publishedAt}</small></p>
+                    <a rel="noreferrer" href={newsUrl} target="_blank" className={`btn btn-sm btn-${props.mode==='light'?'dark':'light'}`}>Read More</a>
+                </div>
             </div>
-            <img src={!imageUrl ? "https://hot-town-images.s3.amazonaws.com/kwtv/production/2022/January/19/breaking-news.1642620193378.jpeg" : imageUrl} className="card-img-top" alt="error" />
-            <div className={`card-body ${props.mode}`}>
-              <h5 className={`card-title text-${props.mode==='light'?'light':'dark'}`}>{title}  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                New
-                <span class="visually-hidden">unread messages</span>
-              </span></h5>
-              <p className={`card-text text-${props.mode==='light'?'light':'dark'}`}>{description}</p>
-              <h4 className={`card-text text-${props.mode==='light'?'light':'dark'}`}><small className="">Author: {author}</small></h4>
-              <p className="card-text"><small className="text-muted">Uploaded on {new Date(date).toGMTString()}</small></p>
-              <a href={newsUrl} rel="noreferrer" target="_self" className="btn btn-sm btn-dark">Read More</a>
-            </div>
-          </div>
         </div>
-      </>
     )
 }
 
