@@ -15,7 +15,7 @@ const NewsItem = (props) => {
                     <h5 className="card-title">{title}...</h5>
                     <p className="card-text">{description}...</p>
                     <p className="card-text"><small className="text-danger">By {author} on {publishedAt}</small></p>
-                    <a rel="noreferrer" href={newsUrl} target="_blank" className={`btn btn-sm btn-${props.mode==='light'?'dark':'light'}`}>Read More</a>
+                    <a rel="noreferrer" href={newsUrl} target="_self" className={`btn btn-sm btn-${props.mode==='light'?'dark':'light'}`}>Read More</a>
                 </div>
             </div>
         </div>
