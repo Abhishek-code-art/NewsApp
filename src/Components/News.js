@@ -70,8 +70,7 @@ const News = (props) => {
                             })}
                         </div>
                     </div>
-                </InfiniteScroll>
-                
+                </InfiniteScroll> 
             </>
         )
 
